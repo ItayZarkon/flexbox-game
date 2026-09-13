@@ -38,22 +38,3 @@ FlexboxGame/
 ├── script.js      # Game state, level data, and verification logic
 └── README.md      # Project documentation
 ```
-
-## How to Run
-
-1. Clone or download this repository.
-2. Open `index.html` directly in any modern web browser (Chrome, Firefox, Safari, Edge).
-   - Alternatively, serve locally using a lightweight server:
-     ```bash
-     # Python 3
-     python3 -m http.server 8000
-     ```
-   - Then navigate to `http://localhost:8000` in your browser.
-
-## Deployment to GitHub Pages
-
-To publish this game using GitHub Pages:
-1. Push the repository to GitHub.
-2. Go to **Settings** > **Pages**.
-3. Under **Branch**, select `main` and root directory `/`, then click **Save**.
-4. Your site will be published at `https://<username>.github.io/<repository-name>/`.
