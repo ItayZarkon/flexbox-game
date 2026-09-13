@@ -4,8 +4,7 @@
 const levels = [
   {
     id: 1,
-    title: "שלב 1: יישור אופקי למרכז",
-    instruction: "סדרו את הפריטים בשורה במרכז הלוח אופקית (השתמשו ב-justify-content: center).",
+    instruction: "סדרו את הפריטים בשורה במרכז הלוח אופקית.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -22,8 +21,7 @@ const levels = [
   },
   {
     id: 2,
-    title: "שלב 2: יישור אנכי לתחתית",
-    instruction: "סדרו את הפריטים בשורה בתחתית הלוח (השתמשו ב-align-items: flex-end).",
+    instruction: "סדרו את הפריטים בשורה בתחתית הלוח.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -40,8 +38,7 @@ const levels = [
   },
   {
     id: 3,
-    title: "שלב 3: שינוי כיוון לטור",
-    instruction: "סדרו את הפריטים בטור מלמעלה למטה במקום בשורה (השתמשו ב-flex-direction: column).",
+    instruction: "סדרו את הפריטים בטור מלמעלה למטה במקום בשורה.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -58,8 +55,7 @@ const levels = [
   },
   {
     id: 4,
-    title: "שלב 4: מרווח שווה ויישור לתחתית (שילוב מאפיינים)",
-    instruction: "סדרו את כל הפריטים בשורה, במרווח שווה ביניהם (space-between) ובתחתית הלוח (flex-end).",
+    instruction: "סדרו את כל הפריטים בשורה, במרווח שווה ביניהם ובתחתית הלוח.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -76,8 +72,7 @@ const levels = [
   },
   {
     id: 5,
-    title: "שלב 5: טור ומירכוז לרוחב (שילוב מאפיינים)",
-    instruction: "סדרו את הפריטים מלמעלה למטה (column) ומרכזו אותם לרוחב הלוח (center).",
+    instruction: "סדרו את הפריטים מלמעלה למטה ומרכזו אותם לרוחב הלוח.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -94,8 +89,7 @@ const levels = [
   },
   {
     id: 6,
-    title: "שלב 6: גלישת שורות ומרווח מסביב (שימוש ב-flex-wrap)",
-    instruction: "אפשרו לפריטים לגלוש לשורה הבאה (wrap) ופזרו אותם במרווח שווה מסביב (space-around).",
+    instruction: "אפשרו לפריטים לגלוש לשורה הבאה ופזרו אותם במרווח שווה מסביב.",
     itemCount: 5,
     initial: {
       flexDirection: "row",
@@ -112,8 +106,7 @@ const levels = [
   },
   {
     id: 7,
-    title: "שלב 7: טור בסדר הפוך, מירכוז ויישור לקצה (שילוב 3 מאפיינים)",
-    instruction: "סדרו את הפריטים בטור בסדר הפוך (column-reverse), במרכז הלוח אנכית (center) ובקצה הלוח אופקית (flex-end).",
+    instruction: "סדרו את הפריטים בטור בסדר הפוך, במרכז הלוח אנכית ובקצה הלוח אופקית.",
     itemCount: 3,
     initial: {
       flexDirection: "row",
@@ -221,7 +214,7 @@ function loadLevel(index) {
   const level = levels[currentLevelIndex];
 
   // Update Indicator and Instructions
-  levelTitleEl.textContent = `שלב ${level.id} מתוך ${levels.length}: ${level.title}`;
+  levelTitleEl.textContent = `שלב ${level.id} מתוך ${levels.length}`;
   levelInstructionEl.textContent = level.instruction;
 
   // Render Target Items & Player Items
