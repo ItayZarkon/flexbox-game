@@ -1,38 +1,130 @@
-/* Reset & Base Styles - Skeleton Only */
+/* בדרך למכללה — campus theme. Board items keep a fixed 80x80 box so solutions stay resolution-independent. */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --sky-top: #7eb6d9;
+  --sky-mid: #cfe6f4;
+  --sky-warm: #f3e2c4;
+  --lawn: #6ea35a;
+  --lawn-dark: #4f7f40;
+  --path: #d7c4a0;
+  --brick: #b55239;
+  --navy: #1e3354;
+  --navy-deep: #15243c;
+  --gold: #d4a017;
+  --cream: #fbf6ea;
+  --paper: #fffaf0;
+  --ink: #1d2433;
+  --muted: #5c6578;
+  --hoodie-1: #1e4d8c;
+  --hoodie-2: #9a3b4a;
+  --hoodie-3: #2f6b4f;
+  --hoodie-4: #c48a1a;
+  --hoodie-5: #2a6f7a;
+  --skin: #e6b48a;
+  --hair-1: #2c1b12;
+  --hair-2: #4a2c14;
+  --hair-3: #1a1a1a;
+  --hair-4: #6b3a1f;
+  --hair-5: #24160f;
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Segoe UI", Tahoma, "Arial Hebrew", "Noto Sans Hebrew", sans-serif;
   line-height: 1.5;
-  color: #222;
-  background-color: #fff;
-  padding: 16px;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 24px 16px 40px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.45) 0 80px, transparent 81px),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, var(--sky-warm) 62%, #c9ddb0 78%, #8fb56c 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 90px;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #4d3b32 0 18px,
+      #5a463b 18px 22px,
+      #3f3129 22px 40px
+    );
+  clip-path: polygon(0 40%, 6% 0, 12% 55%, 18% 10%, 26% 60%, 34% 0, 42% 50%, 50% 8%, 58% 58%, 66% 4%, 74% 52%, 82% 12%, 90% 48%, 96% 6%, 100% 42%, 100% 100%, 0 100%);
+  opacity: 0.28;
+  z-index: 0;
 }
 
 .game-container {
-  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
   margin: 0 auto;
+  background: var(--paper);
+  border: 3px solid var(--navy);
+  border-radius: 18px;
+  box-shadow:
+    0 18px 0 rgba(21, 36, 60, 0.18),
+    0 28px 48px rgba(21, 36, 60, 0.22);
+  overflow: hidden;
 }
 
-/* Header */
 .game-header {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 12px;
-  margin-bottom: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%),
+    repeating-linear-gradient(
+      90deg,
+      var(--brick) 0 28px,
+      #9a4632 28px 30px,
+      var(--brick) 30px 58px
+    );
+  color: #fffaf3;
+  padding: 20px 20px 16px;
+  border-bottom: 8px solid var(--navy);
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(21, 36, 60, 0.45);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
 }
 
 .game-header h1 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 1.85rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 0 rgba(21, 36, 60, 0.35);
+}
+
+.tagline {
+  max-width: 42em;
+  font-size: 0.98rem;
+  color: #ffe9c9;
+  margin-bottom: 14px;
 }
 
 .level-indicator {
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-weight: 700;
+  background: var(--gold);
+  color: var(--navy-deep);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 0 var(--navy-deep);
 }
 
 .level-nav {
@@ -43,35 +135,57 @@ body {
 }
 
 .level-btn {
-  padding: 4px 10px;
-  border: 1px solid #999;
-  background-color: #f5f5f5;
+  min-width: 44px;
+  padding: 6px 10px;
+  border: 2px solid var(--navy-deep);
+  background-color: var(--cream);
+  color: var(--navy);
   cursor: pointer;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.level-btn:hover {
+  background: #fff;
 }
 
 .level-btn.active {
-  font-weight: bold;
-  border-color: #000;
-  background-color: #ddd;
+  background-color: var(--navy);
+  color: #fff;
+  border-color: var(--gold);
 }
 
 .level-btn.completed {
-  text-decoration: underline;
+  box-shadow: inset 0 -3px 0 var(--gold);
 }
 
-/* Instructions */
+.game-main {
+  padding: 18px;
+  background:
+    linear-gradient(90deg, rgba(180, 82, 57, 0.08) 0 12px, transparent 12px),
+    var(--cream);
+}
+
 .instructions-section {
-  border: 1px solid #ddd;
-  padding: 12px;
+  background: #fff;
+  border: 2px solid #e2d2b3;
+  border-right: 6px solid var(--gold);
+  padding: 12px 14px;
   margin-bottom: 16px;
+  border-radius: 10px;
 }
 
 .instructions-section h2 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--brick);
 }
 
-/* Gameplay Section - Responsive Flex layout */
+.instructions-section p {
+  color: var(--ink);
+}
+
 .gameplay-section {
   display: flex;
   flex-direction: row;
@@ -80,17 +194,26 @@ body {
   flex-wrap: wrap;
 }
 
-/* Controls Panel */
 .controls-panel {
   flex: 1;
   min-width: 280px;
-  border: 1px solid #ddd;
+  background: #fff;
+  border: 2px solid var(--navy);
   padding: 16px;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 rgba(30, 51, 84, 0.12);
 }
 
 .controls-panel h3 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+
+.controls-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
 }
 
 .control-group {
@@ -101,17 +224,25 @@ body {
 }
 
 .control-group label {
-  font-family: monospace;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
 }
 
 .control-group select {
-  padding: 6px 8px;
+  padding: 8px 10px;
   font-size: 0.95rem;
-  font-family: monospace;
-  border: 1px solid #999;
-  background-color: #fff;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  border: 2px solid #cbbca0;
+  background-color: var(--paper);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.control-group select:focus {
+  outline: 3px solid rgba(212, 160, 23, 0.45);
+  border-color: var(--gold);
 }
 
 .button-group {
@@ -125,42 +256,70 @@ body {
   padding: 8px 14px;
   font-size: 0.95rem;
   cursor: pointer;
-  border: 1px solid #666;
-  background-color: #eee;
+  border-radius: 8px;
+  font-weight: 700;
+  font-family: inherit;
+  background: #fff;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+#btn-check {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+#btn-prev,
+#btn-next {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy-deep);
+}
+
+.button-group button:hover:not(:disabled) {
+  filter: brightness(1.05);
 }
 
 .button-group button:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
+  filter: none;
 }
 
-/* Feedback Message */
 .feedback-message {
   margin-top: 16px;
-  padding: 10px;
-  font-weight: 600;
+  padding: 10px 12px;
+  font-weight: 700;
   display: none;
+  border-radius: 8px;
 }
 
 .feedback-message.success {
   display: block;
-  border: 1px solid #2e7d32;
-  color: #2e7d32;
+  border: 2px solid #2e7d32;
+  color: #1b5e20;
   background-color: #e8f5e9;
 }
 
 .feedback-message.error {
   display: block;
-  border: 1px solid #c62828;
-  color: #c62828;
+  border: 2px solid #c62828;
+  color: #8e1b1b;
   background-color: #ffebee;
 }
 
-/* Game Board - Fixed width and height across all screen resolutions */
 .board-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+}
+
+.board-caption {
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 0.04em;
 }
 
 .game-board {
@@ -168,10 +327,60 @@ body {
   height: 360px;
   min-width: 360px;
   min-height: 360px;
-  border: 2px solid #333;
+  border: 2px solid var(--navy);
   position: relative;
-  background-color: #fafafa;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 0 3px rgba(30, 51, 84, 0.18);
+  background-color: var(--lawn);
+  background-image:
+    radial-gradient(circle at 18% 14%, #ffe9a8 0 18px, rgba(255, 233, 168, 0.15) 28px, transparent 29px),
+    linear-gradient(180deg, #8ec7ea 0 78px, transparent 79px),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 16px,
+      rgba(255, 255, 255, 0.08) 16px 18px
+    ),
+    linear-gradient(180deg, var(--lawn) 0%, var(--lawn-dark) 100%);
+}
+
+.game-board::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 78px;
+  background:
+    linear-gradient(180deg, #6aaad4 0%, #8ec7ea 100%);
+  border-bottom: 4px solid #e8d7a8;
+  z-index: 0;
+}
+
+.game-board::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 56px;
+  height: 22px;
+  background:
+    linear-gradient(90deg,
+      transparent 8%,
+      var(--navy) 8% 14%,
+      transparent 14% 18%,
+      var(--brick) 18% 28%,
+      transparent 28% 40%,
+      var(--navy) 40% 46%,
+      transparent 46% 58%,
+      #efe6d4 58% 72%,
+      transparent 72% 80%,
+      var(--navy) 80% 88%,
+      transparent 88%
+    );
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .board-layer {
@@ -180,51 +389,158 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex; /* Flex container */
+  display: flex;
 }
 
-/* Target Layer (dashed target outlines) */
 .target-layer {
   pointer-events: none;
   z-index: 1;
 }
 
-.target-item {
-  width: 80px;
-  height: 80px;
-  margin: 6px;
-  border: 2px dashed #888;
-  background-color: rgba(200, 200, 200, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #888;
-  flex-shrink: 0;
-}
-
-/* Player Layer (user controlled items) */
 .player-layer {
   z-index: 2;
 }
 
+.target-item,
 .player-item {
   width: 80px;
   height: 80px;
   margin: 6px;
-  border: 2px solid #222;
-  background-color: rgba(100, 100, 100, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #111;
   flex-shrink: 0;
-  transition: all 0.2s ease-out;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: 800;
 }
 
-/* Responsive adjustments */
+/* בנייני המכללה — היעדים, כמו שושנות המים אצל הצפרדע */
+.target-item {
+  isolation: isolate;
+  border: 2px dashed rgba(212, 160, 23, 0.95);
+  color: var(--navy);
+  background-color: rgba(239, 230, 212, 0.35);
+  border-radius: 6px;
+  padding-bottom: 8px;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+.target-item::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  height: 16px;
+  background: var(--navy);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.target-item::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 22px;
+  bottom: 10px;
+  background:
+    linear-gradient(90deg, transparent 0 6px, #7ea4c9 6px 12px, transparent 12px 22px, #7ea4c9 22px 28px, transparent 28px),
+    linear-gradient(#efe6d4, #efe6d4);
+  border: 2px solid var(--navy);
+  border-top: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Students — the pieces you move onto campus */
+.player-item {
+  isolation: isolate;
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+  padding-bottom: 8px;
+  z-index: 2;
+  transition: all 0.22s ease-out;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.player-item::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  border-radius: 50%;
+  background: var(--skin);
+  box-shadow: 0 -6px 0 -2px var(--hair-1);
+  z-index: 2;
+}
+
+.player-item::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  width: 42px;
+  height: 38px;
+  margin-left: -21px;
+  border-radius: 12px 12px 8px 8px;
+  background: var(--hoodie-1);
+  box-shadow: 14px 10px 0 -8px #243044;
+  z-index: -1;
+}
+
+.player-item:nth-child(1)::after { background: var(--hoodie-1); }
+.player-item:nth-child(1)::before { box-shadow: 0 -6px 0 -2px var(--hair-1); }
+.player-item:nth-child(2)::after { background: var(--hoodie-2); }
+.player-item:nth-child(2)::before { box-shadow: 0 -6px 0 -2px var(--hair-2); }
+.player-item:nth-child(3)::after { background: var(--hoodie-3); }
+.player-item:nth-child(3)::before { box-shadow: 0 -6px 0 -2px var(--hair-3); }
+.player-item:nth-child(4)::after { background: var(--hoodie-4); }
+.player-item:nth-child(4)::before { box-shadow: 0 -6px 0 -2px var(--hair-4); }
+.player-item:nth-child(5)::after { background: var(--hoodie-5); }
+.player-item:nth-child(5)::before { box-shadow: 0 -6px 0 -2px var(--hair-5); }
+
+.gameplay-section:has(.feedback-message.success) .player-item {
+  animation: hop 0.55s ease-out;
+}
+
+.gameplay-section:has(.feedback-message.error) .game-board {
+  animation: miss 0.4s ease-in-out;
+}
+
+@keyframes hop {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+}
+
+@keyframes miss {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player-item,
+  .game-board {
+    animation: none !important;
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
+  body {
+    padding: 12px 10px 28px;
+  }
+
+  .game-header h1 {
+    font-size: 1.45rem;
+  }
+
   .gameplay-section {
     flex-direction: column-reverse;
     align-items: center;

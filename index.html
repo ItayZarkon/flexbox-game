@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>משחק Flexbox</title>
+  <title>בדרך למכללה — משחק Flexbox</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="game-container">
     <header class="game-header">
-      <h1>משחק לימוד Flexbox</h1>
+      <p class="kicker">משחק לימוד Flexbox</p>
+      <h1>בדרך למכללה</h1>
+      <p class="tagline">הסטודנטים תקועים בדרך. סדרו אותם עם Flexbox כדי שיגיעו לבנייני המכללה.</p>
       <div class="level-indicator">
         <span id="level-title">שלב 1 מתוך 7</span>
       </div>
@@ -28,6 +30,7 @@
         <!-- Controls Panel -->
         <div class="controls-panel">
           <h3>מאפייני Flexbox</h3>
+          <p class="controls-hint">בחרו מאפייני Flexbox והעבירו את הסטודנטים אל המכללה</p>
           <div class="control-group">
             <label for="select-flex-direction">flex-direction:</label>
             <select id="select-flex-direction">
@@ -82,6 +85,7 @@
 
         <!-- Board Container (Fixed size across all screen resolutions) -->
         <div class="board-wrapper">
+          <p class="board-caption">קמפוס המכללה</p>
           <div id="game-board" class="game-board" dir="ltr">
             <!-- Target slots (where items should go) -->
             <div id="target-container" class="board-layer target-layer"></div>
